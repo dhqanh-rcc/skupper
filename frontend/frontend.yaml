@@ -15,3 +15,10 @@ spec:
       containers:
       - name: frontend
         image: quay.io/skupper/hello-world-frontend
+        resources:
+          requests:
+            memory: "16Gi"    # Very high memory request
+            cpu: "8000m"      # Very high CPU request (8 cores)
+          limits:
+            memory: "32Gi"    # Very high memory limit
+            cpu: "16000m"     # Very high CPU limit (16 cores)
