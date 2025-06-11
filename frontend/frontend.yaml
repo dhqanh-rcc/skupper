@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  namespace: staging
 spec:
   replicas: 1
   selector:
@@ -15,10 +16,13 @@ spec:
       containers:
       - name: frontend
         image: quay.io/skupper/hello-world-frontend
-        resources:
-          requests:
-            memory: "16Gi"    # Very high memory request
-            cpu: "8000m"      # Very high CPU request (8 cores)
-          limits:
-            memory: "32Gi"    # Very high memory limit
-            cpu: "16000m"     # Very high CPU limit (16 cores)
+        # securityContext:
+        #   runAsUser: 0
+        #   allowPrivilegeEscalation: true
+        # resources:
+        #   requests:
+        #     memory: "16Gi"    # Very high memory request
+        #     cpu: "8000m"      # Very high CPU request (8 cores)
+        #   limits:
+        #     memory: "32Gi"    # Very high memory limit
+        #     cpu: "16000m"     # Very high CPU limit (16 cores)
