@@ -19,10 +19,10 @@ spec:
         # securityContext:
         #   runAsUser: 0
         #   allowPrivilegeEscalation: true
-        # resources:
-        #   requests:
-        #     memory: "16Gi"    # Very high memory request
-        #     cpu: "8000m"      # Very high CPU request (8 cores)
-        #   limits:
-        #     memory: "32Gi"    # Very high memory limit
-        #     cpu: "16000m"     # Very high CPU limit (16 cores)
+        resources:
+          requests:
+            memory: "1Mi"     # Very low memory request (8 megabytes)
+            cpu: "1m"        # Very low CPU request (0.01 cores)
+          limits:
+            memory: "1Mi"    # Very low memory limit (16 megabytes)
+            cpu: "1m"        # Low CPU limit (0.05 cores)
